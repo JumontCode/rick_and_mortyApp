@@ -1,0 +1,29 @@
+.containerSearch{
+    background-color: rgb(177, 173, 173);
+    margin-left: 965px;
+    position: relative;
+}
+
+.searchBar{
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+}   
+
+.containerSearch button{
+    background-color: rgb(230, 233, 57);
+    position: absolute;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 5px;
+    right: 25px;
+}
+
+.containerSearch input{
+    height: 2rem;
+    position: relative;
+    border-radius: 5px;
+    border: 0;
+    width: 250px;
+    left: 15px;
+}

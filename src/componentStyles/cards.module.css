@@ -1,0 +1,10 @@
+.containerCards{
+    width: 100%;
+    height: 100%;
+    padding: 0px 10px 10px;
+    border: 0px solid black;
+    /* background-color: rgb(129, 64, 64); */
+    display: flex;
+    box-sizing: border-box;
+    /* flex-wrap: wrap; */
+}
