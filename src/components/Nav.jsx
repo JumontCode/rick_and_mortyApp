@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
 function random(){
@@ -9,6 +10,8 @@ export default function Nav({onSearch}){
         <>
             <SearchBar onSearch={onSearch} />
             <button onClick={() => onSearch(random())}>Random</button>
+            <Link to={'/about'}><button>About</button></Link>
+            <Link to={'/home'}><button>Home</button></Link>
         </>
     );
 }
