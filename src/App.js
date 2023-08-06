@@ -5,6 +5,7 @@ import Nav from "./components/Nav.jsx";
 import axios from "axios";
 import About from "./components/About.jsx"
 import Detail from "./components/Detail.jsx"
+import Error from "./components/Error";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -32,12 +33,13 @@ function App() {
 
    return (
      <div className="App">
-      <Nav onSearch={onSearch} />
-      <Routes>
-        <Route path="/home" element={<Cards onClose={onClose} characters={characters} />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/detail/:id" element={<Detail />} />
-      </Routes>
+        <Nav onSearch={onSearch} />
+        <Routes>
+          <Route path="/home" element={<Cards onClose={onClose} characters={characters} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/detail/:id" element={<Detail />} />
+          <Route path="*" element={<Error />} />
+        </Routes> 
     </div>
   );
 }
