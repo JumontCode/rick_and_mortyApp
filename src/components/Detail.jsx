@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import Card from './Card';
+import styles from '../componentStyles/detail.module.css';
 
 export default function Detail(){
     
@@ -21,15 +21,15 @@ export default function Detail(){
      }, [id]);
      
      return(
-         <div>
+         <div className={styles.DetailContainer}>
             {character &&(
                 <> 
                     {/* <h2>SOY EL DETAIL</h2> */}
                     <h2>{character.name}</h2>
-                    <h2>STATUS | {character.status}</h2>
-                    <h2>SPECIE | {character.species}</h2>
-                    <h2>GENDER | {character.gender}</h2>
-                    <h2>ORIGIN | {character.origin?.name}</h2>
+                    <h2>{character.status}</h2>
+                    <h2>{character.species}</h2>
+                    <h2>{character.gender}</h2>
+                    <h2>{character.origin?.name}</h2>
                     <img src={character.image} alt="imagen" />
                 </>
             )}          

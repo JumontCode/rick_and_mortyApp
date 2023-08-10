@@ -1,0 +1,11 @@
+.success{
+    border-color: green;
+    background-color: rgb(33, 120, 33);
+    color: black;
+}
+
+.denied{
+    border-color: red;
+    background-color: red;
+    color: black;
+}
