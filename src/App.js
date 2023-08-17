@@ -7,16 +7,19 @@ import About from "./components/About.jsx";
 import Detail from "./components/Detail.jsx";
 import Error from "./components/Error";
 import Form from "./components/Form";
+import Favorites from "./components/Favorites";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { removeFav } from "./redux/actions";
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const [loggedIn, setLoggedIn] = useState([]);
 
   const [access, setAccess] = useState(false);
-  const EMAIL = 'user@email.com';
+  const EMAIL = 'u@m.com';
   const PASSWORD = '123';
 
+  const {pathname} = useLocation();
   const navigate = useNavigate();
 
   const login = (userData) => {
@@ -24,28 +27,26 @@ function App() {
       setAccess(true);
       navigate('/home');
    }
-  }
-
-
+  } 
 
   useEffect(() => {
     !access && navigate('/');
  }, [access]);
 
-  let location = useLocation();
   // useEffect(()=>{}, location)
 
   function onSearch(id) {
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
       ({ data }) => {
-        if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
-        } else {
-          window.alert("¡No hay personajes con este ID!");
-        }
+        if (!characters.find((char) => char.id === data.id)) {
+          if (data.name) {
+            setCharacters((oldChars) => [...oldChars, data]);
+          } else {
+            window.alert(`Ya existe un personaje con el id ${id}`);
+          }}
       }
-    );
-  }
+    )
+  };
 
   function onClose(id) {
     const newCharacters = characters.filter(
@@ -54,15 +55,24 @@ function App() {
     setCharacters(newCharacters);
   }
 
+  function removeOnClick(id){
+    return {type: removeFav, payload: id}
+  }
+
   return (
     <div className="App">
-      {location.pathname !== '/' && <Nav onSearch={onSearch} />}
+      {pathname !== '/' && <Nav onSearch={onSearch} />}
       <Routes>
         <Route path="/" element={< Form login={login} />} />
-        <Route path="/home" element={<Cards onClose={onClose} characters={characters} />}/>
+        <Route path="/home" element={<Cards onClose={onClose} removeOnClick={removeOnClick} characters={characters} />}/>
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="*" element={<Error />} />
+
+        ////! ELIMINAR RUTA Y DESCOMENTAR LAS OTRAS, ESTA SOLO ES PARA PRUEBA 
+        {/* <Route path="/" element={<Cards onClose={onClose} characters={characters} />} /> */}
+        {/* <Route path="*" element={<Error />} /> */}
       </Routes>
     </div>
   );

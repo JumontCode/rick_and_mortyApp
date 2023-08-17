@@ -20,6 +20,13 @@ export default function Form({login}) {
     setUserData({ ...userData, [property]: value });
   };
 
+  const errorChange = (event) => {
+    const property = event.target.name;
+    const value = event.target.value;
+
+    setErrors({...errors, [property]: value})
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     login(userData);

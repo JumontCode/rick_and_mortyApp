@@ -1,4 +1,9 @@
-/*  */.errorImg{
-    height: 100px;    
-    width: 100px;    
+.errorImg{
+    height: 500px;    
+    width: 600px;    
+}
+
+.container{
+    background-image: url('../resources/morty-enojado-con-rick_2560x1440_xtrafondos.com.jpg');
+
 }

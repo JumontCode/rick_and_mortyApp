@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-export default function Cards({ characters, onClose}) {
+export default function Cards({ characters, onClose, removeOnClick}) {
   return (
     <div>
       {characters.map(character => (
@@ -14,6 +14,7 @@ export default function Cards({ characters, onClose}) {
           origin={character.origin.name}
           image={character.image}
           onClose={(onClose) /* => window.alert("Cerrar card") */}
+          removeOnClick={(removeOnClick)}
         />
       ))}
     </div>
