@@ -1,0 +1,49 @@
+.containerCard{
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* .divisor{
+    display: flex;
+    flex-direction: column-reverse;
+} */
+
+.card{
+    height: 440px;
+    width: 310px;
+    border: 1px solid;
+    padding: 1px;
+}
+
+body{
+    font-size: 15px;
+}
+
+img{
+
+    margin: 5px 12px 0px 12px;
+    width: 300px;
+    height: 250px;
+}
+
+.buttonContainer{
+    display:flex;
+    position:relative;
+}
+
+.buttonContainer .btnFav{
+    position: absolute;
+    /* bottom:0em; */
+    left:0em;
+    /* padding:1em 1.5em; */
+}
+
+.buttonContainer .btnClose{
+    position: absolute;
+    right: 0.10em;
+}
+
+
+.info{
+    font-size: 11px;
+}

@@ -1,13 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import Cards from "./components/Cards";
-import Nav from "./components/Nav.jsx";
 import axios from "axios";
-import About from "./components/About.jsx";
-import Detail from "./components/Detail.jsx";
-import Error from "./components/Error";
-import Form from "./components/Form";
-import Favorites from "./components/Favorites";
+import { Cards, Nav, About, Detail, Error, Form, Favorites } from "./components/index";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { removeFav } from "./redux/actions";
 
@@ -36,7 +30,8 @@ function App() {
   // useEffect(()=>{}, location)
 
   function onSearch(id) {
-    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
+    axios(`http://localhost:3001/rickandmorty/character/${id}`)
+    .then(
       ({ data }) => {
         if (!characters.find((char) => char.id === data.id)) {
           if (data.name) {
