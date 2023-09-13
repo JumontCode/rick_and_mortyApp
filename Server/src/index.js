@@ -1,32 +1,49 @@
-const http = require("http");
-const data = require('./utils/data')
+// const http = require("http");
+// const getCharbyId = require("./controllers/getCharById.js");
 
+// http
+//   .createServer((req, res) => {
+//     res.setHeader("Access-Control-Allow-Origin", "*");
+//     const { url } = req;
 
-http.createServer(function(req,res){
-    const { url } = req;
-    res.setHeader('Access-Control-Allow-Origin', '*');
+//     if (url.includes("/rickandmorty/character")) {
+//       // const div = url.split("/");
+//       // const id = parseInt(div[div.length - 1])
+//       const id = Number(url.split("/").pop());
 
-      if(url === "/rickandmorty/characters"){
-        const characters = data;
-        res.writeHead(200, { "Content-Type": "application/json" });
-        res.end(
-          JSON.stringify(characters)
-        );
-      }else
+//       getCharbyId(res, id);
+//     } else {
+//       res.writeHead(400, { "Content-type": "application/json" });
+//       res.end(JSON.stringify({ error: "No encontrado" }));
+//     }
+//   })
+//   .listen(3001);
 
-       if(url.includes("/rickandmorty/character")){
-        const div = url.split('/')
-        const id = div[div.length - 1]
-        const character = data.find((char) => char.id === parseInt(id));
-        
-        if (character) {
-        res.writeHead(200, { "Content-Type": "application/json" });
-        res.end(
-          JSON.stringify(character)
-        );
-      } else {
-        res.writeHead(200, { "Content-type": "text/plain" });
-        res.end("No encontrado");
-      }
-    }
-}).listen(3001);
+const express = require('express');
+const router = require('./routes/index')
+const server = express();
+const PORT = 3001;
+
+server.use((req, res, next) => {
+   res.header('Access-Control-Allow-Origin', '*');
+   res.header('Access-Control-Allow-Credentials', 'true');
+   res.header(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept'
+   );
+   res.header(
+      'Access-Control-Allow-Methods',
+      'GET, POST, OPTIONS, PUT, DELETE'
+   );
+   next();
+ });
+ 
+ server.use(express.json())
+ 
+ server.use('/rickandmorty', router)
+ 
+ 
+ 
+ server.listen(PORT, () => {
+   console.log(`Server raised in port: ${PORT}`)
+ })
