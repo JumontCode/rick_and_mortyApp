@@ -16,15 +16,32 @@ function App() {
   const {pathname} = useLocation();
   const navigate = useNavigate();
 
-  function login(userData) {
-   const { email, password } = userData;
-   const URL = 'http://localhost:3001/rickandmorty/login/';
-   axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-      const { access } = data;
-      setAccess(data);
-      access && navigate('/home');
-   });
-}
+    //! LOGIN CON PROMESA
+  // function login(userData) {
+  //  const { email, password } = userData;
+  //  const URL = 'http://localhost:3001/rickandmorty/login/';
+  //  axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+  //    const { access } = data;
+  //    setAccess(data);
+  //    access && navigate('/home');
+  //   });
+  // }
+
+  //! LOGIN CON ASYNC AWAIT
+  const login = async (userData) =>{
+    const { email, password } = userData;
+    const URL = 'http://localhost:3001/rickandmorty/login/';
+      try {
+        const { data } = await axios(`${URL}?email=${email}&password=${password}`)
+        const { access } = data;
+        if(access){
+          setAccess(data);
+          navigate('/home');
+        }
+      } catch (error) {
+        console.error('Error al iniciar sesión:', error); 
+      }      
+   }
 
   useEffect(() => {
     !access && navigate('/');
@@ -32,19 +49,36 @@ function App() {
 
   // useEffect(()=>{}, location)
 
-  function onSearch(id) {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`)
-    .then(
-      ({ data }) => {
-        if (!characters.find((char) => char.id === data.id)) {
-          if (data.name) {
-            setCharacters((oldChars) => [...oldChars, data]);
-          } else {
-            window.alert(`Ya existe un personaje con el id ${id}`);
-          }}
-      }
-    )
-  };
+  //! FUNCION ONSEARCH CON PROMESA
+  // function onSearch(id) {
+  //   axios(`http://localhost:3001/rickandmorty/character/${id}`)
+  //   .then(
+  //     ({ data }) => {
+  //       if (!characters.find((char) => char.id === data.id)) {
+  //         if (data.name) {
+  //           setCharacters((oldChars) => [...oldChars, data]);
+  //         } else {
+  //           window.alert(`Ya existe un personaje con el id ${id}`);
+  //         }}
+  //     }
+  //   )
+  // };
+
+  //!FUNCION ONSEARCH CON ASYNC AWAIT
+  const onSearch = async (id) =>{
+    const URL = `http://localhost:3001/rickandmorty/character/`;
+    try {
+      const { data } = await axios(`${URL}${id}`);
+      if (!characters.find((char) => char.id === data.id)) {
+        if (data.name) {
+          setCharacters((oldChars) => [...oldChars, data]);
+        } else {
+          window.alert(`Ya existe un personaje con el id ${id}`);
+        }}
+    } catch (error) {
+      
+    }
+  }
 
   function onClose(id) {
     const newCharacters = characters.filter(
@@ -67,10 +101,6 @@ function App() {
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="*" element={<Error />} />
-
-        ////! ELIMINAR RUTA Y DESCOMENTAR LAS OTRAS, ESTA SOLO ES PARA PRUEBA 
-        {/* <Route path="/" element={<Cards onClose={onClose} characters={characters} />} /> */}
-        {/* <Route path="*" element={<Error />} /> */}
       </Routes>
     </div>
   );

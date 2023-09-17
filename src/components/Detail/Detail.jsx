@@ -7,9 +7,10 @@ export default function Detail(){
     
     const { id } = useParams();
     const [character, setCharacter] = useState([]);
+    const URL = 'https://localhost:3001/rickandmorty/character/'
 
     useEffect(() => {
-        axios(`https://localhost:3001/rickandmorty/character/${id}`)
+        axios(`${URL}${id}`)
         .then(({ data }) => {
            if (data.name) {
               setCharacter(data);
