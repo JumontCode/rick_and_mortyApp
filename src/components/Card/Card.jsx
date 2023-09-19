@@ -7,7 +7,8 @@ import styles from './card.module.css';
 function Card({ id, name, status, species, gender, origin, image, onClose, addFav, removeFav, myFavorites}) {
   
   const [isFav, setIsFav] = useState(false);
-
+   
+  //!? USEEFECT CON FOREACH
      useEffect(() => {
    myFavorites?.forEach((fav) => {
       if (fav.id === id) {
@@ -15,6 +16,7 @@ function Card({ id, name, status, species, gender, origin, image, onClose, addFa
       }
    }   );}, [myFavorites]);
 
+   //!? USEEFECT CON BUCLE FOR
   // useEffect(() => {
   //   for(let i = 0; i<myFavorites.length; i++){
   //      if (myFavorites[i].id === id) {
@@ -52,13 +54,11 @@ function Card({ id, name, status, species, gender, origin, image, onClose, addFa
           
           <button className={styles.btnClose} onClick={() => handleClose(id)}>X</button>
         </div>
-
       
         <div className={styles.info}>
       <Link to={`/detail/${id}`}>
           <h2>{name}</h2>
         </Link>
-          {/* <h2>{status}</h2> */}
           <h2>{species}</h2>
           <h2>{gender}</h2>
           <h2>{origin}</h2>

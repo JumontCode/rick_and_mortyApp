@@ -1,7 +1,7 @@
 import Card from "../Card/Card";
 import styles from "./cards.module.css"
 
-export default function Cards({ characters, onClose, removeOnClick}) {
+export default function Cards({ characters, onClose}) {
   return (
     <div className={styles.containerCards}>
       {characters.map(character => (
@@ -15,7 +15,6 @@ export default function Cards({ characters, onClose, removeOnClick}) {
           origin={character.origin.name}
           image={character.image}
           onClose={(onClose) /* => window.alert("Cerrar card") */}
-          removeOnClick={(removeOnClick)}
         />
       ))}
     </div>

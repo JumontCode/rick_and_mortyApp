@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import Card from '../Card/Card';
 
-export const Favorites = ({ myFavorites }) => {
+export const Favorites = ({ myFavorites, onClose }) => {
 
     return (
         <div>
@@ -14,6 +14,7 @@ export const Favorites = ({ myFavorites }) => {
                 species={fav.species} 
                 gender={fav.gender}
                 image={fav.image}
+                onClose={onClose}
             />
       ))}
     </div>
@@ -26,4 +27,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(Favorites);
+export default connect(mapStateToProps)(Favorites);

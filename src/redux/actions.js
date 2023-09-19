@@ -1,6 +1,10 @@
 import axios from "axios";
 const URL = "http://localhost:3001/rickandmorty/fav/";
 
+export const GET_CHARACTER_DETAIL = "GET_CHARACTER_DETAIL";
+export const CLEAN_DETAIL = "CLEAN_DETAIL";
+
+
 // ACTION | addFav//! ACTION CON PROMESA
 // export const addFav = (character) => {
 //    return (dispatch) => {
@@ -31,19 +35,19 @@ export const addFav = (character) => {
 
 // //! ACTION removeFav CON ASYNC AWAIT
 /*Funcion para remover de favoritos*/
-export const removeFav = async (id) => {
-  return async (dispatch) => {
+export const removeFav = (id) => 
+   async (dispatch) => {
     try {
-      const { data } = await axios.delete(URL, id);
-      return dispatch({
+      const { data } = await axios.delete(URL+id);
+      dispatch({
         type: "REMOVE_FAV",
         payload: data,
       });
     } catch (error) {
-      console.error("Error al remover de favoritos: ", error);
+      alert("Error al remover de favoritos: ");
+      console.error(error)
     }
   };
-};
 
 // ACTION | removeFav
 // export const removeFav = (id) => {
@@ -57,3 +61,18 @@ export const removeFav = async (id) => {
 //      });
 //   };
 // };
+
+
+export const getCharacterDetail = (id)=> { //Hacemos peticion asíncrona, retornamos una fx
+  return function (dispatch) {
+      fetch(`https://rickandmortyapi.com/api/character/${id}`)
+      .then((response) => response.json())
+      .then(data=>dispatch({type:GET_CHARACTER_DETAIL, payload:data}))
+  }
+};
+
+export const cleanDetail = () => {
+  return {
+      type: CLEAN_DETAIL
+  }
+};

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
-import { Cards, Nav, About, Detail, Error, Form, Favorites } from "./components/index";
+import { Welcome, Cards, Nav, About, Detail, Error, Form, Favorites } from "./components/index";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { removeFav } from "./redux/actions";
 
@@ -73,33 +73,37 @@ function App() {
         if (data.name) {
           setCharacters((oldChars) => [...oldChars, data]);
         } else {
-          window.alert(`Ya existe un personaje con el id ${id}`);
+          alert(`Ya existe un personaje con el id ${id}`);
         }}
     } catch (error) {
-      
+      console.error(error)
     }
   }
-
+//onclick para eliminar la card
   function onClose(id) {
     const newCharacters = characters.filter(
-      (characters) => characters.id !== parseInt(id)
-    );
+      (characters) => characters.id !== parseInt(id));
     setCharacters(newCharacters);
   }
 
-  function removeOnClick(id){
-    return {type: removeFav, payload: id}
-  }
+  // function removeOnClick(id){
+  //   return {type: removeFav, payload: id}
+  // }
 
   return (
     <div className="App">
       {pathname !== '/' && <Nav onSearch={onSearch} />}
       <Routes>
         <Route path="/" element={< Form login={login} />} />
-        <Route path="/home" element={<Cards onClose={onClose} removeOnClick={removeOnClick} characters={characters} />}/>
+        <Route path="/home" element={
+          <div>
+            <Cards onClose={onClose} characters={characters} />
+            {characters.length === 0 ? <Welcome /> : ""}
+          </div>
+        }/>
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/favorites" element={<Favorites onClose={onClose} />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </div>
