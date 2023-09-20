@@ -1,6 +1,28 @@
+@import url('https://fonts.googleapis.com/css2? family=Black+And+White+Picture&display=swap');
+
 .navContainer{
-    width: 300px;
-    /* background-color: rgb(247, 244, 244); */
+    background-color: rgb(247, 244, 244);
+    height: 30px;
+    width: 95%;
     margin: 0 auto;
 }
 
+nav li{
+    display:inline-block;
+    /* padding: 12px; */
+    /* background-color:#000; */
+    /* border:1px solid #000; */
+    text-align:center;
+    color:#fff;
+    margin-top: 3px;
+}
+
+nav li:hover{
+    background-color:#fff;
+    color:#000;
+}
+
+.logo{
+    font-family: 'Black And White Picture', cursiva;
+    margin-right: 10px;
+}

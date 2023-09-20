@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from "react-redux";
 import Card from '../Card/Card';
+import { NavLink } from "react-router-dom";
+
 
 export const Favorites = ({ myFavorites, onClose }) => {
 
@@ -9,7 +11,7 @@ export const Favorites = ({ myFavorites, onClose }) => {
             {myFavorites?.map((fav) => (
             <Card 
                 key={fav.id} 
-                name={fav.name} 
+                name={fav.name}
                 status={fav.status} 
                 species={fav.species} 
                 gender={fav.gender}

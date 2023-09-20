@@ -1,3 +1,32 @@
 .App {
    text-align: center;
 }
+
+/* .favorites{
+   background-image: url('../../resources/');
+   background-size: cover;
+   background-attachment: fixed;
+   min-height: 640px;     
+}
+
+.App{
+   background-image: url('../../resources/');
+   background-size: cover;
+   background-attachment: fixed;
+   min-height: 640px;     
+} */
+
+.detail{
+   background-image: url('../../rick_and_mortyApp/src/resources/tienda-pawn-de-rick-y-morty_2560x1440_xtrafondos.com.jpg');
+   background-size: cover;
+   background-attachment: fixed;
+   min-height: 640px;     
+}
+
+/* background-image: url('../../resources/rick-y-morty-en-aventura_2560x1440_xtrafondos.com.jpg'); */
+/* .about{
+   background-size: cover;
+   background-attachment: fixed;
+   min-height: 640px;     
+} */
+

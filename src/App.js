@@ -8,6 +8,7 @@ import { removeFav } from "./redux/actions";
 function App() {
   const [characters, setCharacters] = useState([]);
   const [loggedIn, setLoggedIn] = useState([]);
+  const location = useLocation();
 
   const [access, setAccess] = useState(false);
   const EMAIL = 'u@m.com';
@@ -90,11 +91,23 @@ function App() {
   //   return {type: removeFav, payload: id}
   // }
 
+  const bgImage = () =>{
+    if (location.pathname === "/" || location.pathname === "/home") {
+      return "App";
+    }else if (location.pathname.startsWith("/detail")) {
+      return "detail";
+    } else if (location.pathname === "/favorites") {
+      return "favorites";
+    } else if (location.pathname === "/about") {
+      return "about";
+    } 
+  }
+
   return (
-    <div className="App">
-      {pathname !== '/' && <Nav onSearch={onSearch} />}
+    <div className={bgImage()}>
+      {/*pathname !== '/' && */<Nav onSearch={onSearch} />}
       <Routes>
-        <Route path="/" element={< Form login={login} />} />
+        {/* <Route path="/" element={< Form login={login} />} /> */}
         <Route path="/home" element={
           <div>
             <Cards onClose={onClose} characters={characters} />
@@ -105,6 +118,10 @@ function App() {
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/favorites" element={<Favorites onClose={onClose} />} />
         <Route path="*" element={<Error />} />
+        
+        
+        //! DE PRUEBA PARA EL CONTENEDOR DETAIL, ELIMINAR DESDE QUE TERMINE Y DESCOMENTAR LA DE LOGIN Y LA DE DETAIL DE MAS ARRIBA*/
+        <Route path="/" element={<Cards onClose={onClose} characters={characters} />} />
       </Routes>
     </div>
   );

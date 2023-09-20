@@ -10,11 +10,14 @@ export default function Nav({onSearch}){
     return(
         <>
             <nav className={styles.navContainer}>
-                <SearchBar onSearch={onSearch} />
-                <Link to={'/home'}><button>Home</button></Link>
-                <Link to={'/about'}><button>About</button></Link>
-                <Link to={'/favorites'}><button>Favorites</button></Link>
-                <button onClick={() => onSearch(random())}>Random</button>
+                    <ul>
+                        <li className={styles.logo}>RICK AND MORTY APP</li>
+                        <li><Link to={'/home'}><button>Home</button></Link></li>
+                        <li><Link to={'/about'}><button>About</button></Link></li>
+                        <li><Link to={'/favorites'}><button>Favorites</button></Link></li>
+                        <li><button onClick={() => onSearch(random())}>Random</button></li>
+                        <li><SearchBar onSearch={onSearch} /></li>
+                    </ul>
             </nav>
         </>
     );
