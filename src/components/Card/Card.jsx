@@ -49,7 +49,7 @@ function Card({ id, name, status, species, gender, origin, image, onClose, addFa
           <img src={image} alt="" />
           {
             isFav ? ( <button className={styles.btnFav} onClick={handleFavorite}>❤️</button>) 
-            : ( <button className={styles.btnFav} onClick={handleFavorite}>🤍</button>)
+            : ( <button className={styles.btnFav} onClick={handleFavorite}>🤍</button> )
           }
           
           <button className={styles.btnClose} onClick={() => handleClose(id)}>X</button>
@@ -59,9 +59,9 @@ function Card({ id, name, status, species, gender, origin, image, onClose, addFa
       <Link to={`/detail/${id}`}>
           <h2>{name}</h2>
         </Link>
-          <h2>{species}</h2>
-          <h2>{gender}</h2>
-          <h2>{origin}</h2>
+          {/* <h2>{species}</h2> */}
+          {/* <h2>{gender}</h2> */}
+          {/* <h2>{origin}</h2> */}
         <div className={styles.image}>
         </div>
       </div>

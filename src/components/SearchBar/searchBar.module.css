@@ -1,13 +1,9 @@
  .containerSearch{
-    /* background-color: rgb(255, 8, 8); */
     display: flex;
+    justify-content: space-around;
+    margin-top: 2px;
+    position: relative;    
 }
-
-.searchBar{
-    /* display: flex;
-    padding: 1rem;
-    justify-content: space-between; */
-}   
 
 .containerSearch button{
     /* background-color: rgb(230, 233, 57);
@@ -19,10 +15,9 @@
 }
 
 .containerSearch input{
-    /* height: 2rem;
     position: relative;
+    top: 2px;
+    left: 2px;
+    padding:4px 10px;
     border-radius: 5px;
-    border: 0;
-    width: 250px;
-    left: 15px; */
 } 

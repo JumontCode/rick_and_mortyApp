@@ -2,31 +2,41 @@
    text-align: center;
 }
 
-/* .favorites{
-   background-image: url('../../resources/');
+.login{
+   background-image: url('../../rick_and_mortyApp/src/resources/rick-and-morty-unamused-rick-agpuysmhk3lhdl4p.jpg');
    background-size: cover;
    background-attachment: fixed;
-   min-height: 640px;     
+}
+
+.favorites{
+   background-image: url('../../rick_and_mortyApp/src/resources/633294.png');
+   background-size: cover;
+   background-attachment: fixed;
+   min-height: 780px;     
 }
 
 .App{
-   background-image: url('../../resources/');
+   /* background: url('../../../../../Downloads/rick-1.mp4'); */
+   background-image: url('../../rick_and_mortyApp/src/resources/1259528.jpg');
    background-size: cover;
    background-attachment: fixed;
-   min-height: 640px;     
-} */
+   min-height: 780px;     
+} 
 
 .detail{
    background-image: url('../../rick_and_mortyApp/src/resources/tienda-pawn-de-rick-y-morty_2560x1440_xtrafondos.com.jpg');
    background-size: cover;
    background-attachment: fixed;
-   min-height: 640px;     
+   min-height: 780px;     
 }
 
-/* background-image: url('../../resources/rick-y-morty-en-aventura_2560x1440_xtrafondos.com.jpg'); */
-/* .about{
+.about{
+   background-image: url('../../rick_and_mortyApp/src/resources/rick-and-morty-en-otro-planeta_2560x1440_xtrafondos.com.jpg');
    background-size: cover;
    background-attachment: fixed;
-   min-height: 640px;     
-} */
+   min-height: 780px;     
+}
 
+h2{
+   text-align: center;
+}

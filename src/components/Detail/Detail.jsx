@@ -43,7 +43,6 @@ export default function Detail() {
 
   return (
     <div className={styles.DetailContainer}>
-      {/* {}character &&()   */}
       <>
         {/* <h2>SOY EL DETAIL</h2> */}
         <div className={styles.card_left}>
@@ -58,18 +57,17 @@ export default function Detail() {
             <div className={styles.info}></div>
             <h2>Numero de identificacion: {character.id}</h2>
             <h2>name: {character.name}</h2>
-            {/* <h2>specie: {character.species}</h2> */}
-            {/* <h2>status: {character.status}</h2> */}
 
             <br />
             <p className={styles.description}>
-              Description: Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Tenetur alias minima voluptatibus mollitia aspernatur magni
-              est error itaque magnam quae nulla libero, iusto cum numquam at
-              sint assumenda minus a? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Atque exercitationem, debitis dolorum ullam quo
-              non quisquam qui ab. Incidunt ipsa perferendis veritatis
-              repudiandae facilis corporis cum officiis ipsum voluptas iure.
+              Description: Lorem ipsum dolor sit, amet consectetur adipisicing
+              elit. Veniam voluptatum quo, expedita accusamus ullam modi,
+              asperiores minima eius iusto fugit, obcaecati ipsum explicabo? Ea
+              illo necessitatibus suscipit harum mollitia ad. 
+              
+              <br /> <br /> <br /> 
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed consequatur voluptates
+              numquam.
             </p>
           </div>
         </div>

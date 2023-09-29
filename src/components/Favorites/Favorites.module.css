@@ -1,0 +1,15 @@
+.favoritesContainer{
+    width: 98%;
+    min-height: 640px;
+    box-sizing: border-box;
+    /* margin: 0 auto; */
+    margin-top: 10px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+    display: flex;
+    flex-wrap: wrap;
+    /* background: rgb(129, 64, 64); */
+    align-items: center;
+}
+

@@ -3,18 +3,16 @@
     padding: 10px;  
 }
 
-/* .divisor{
-    display: flex;
-    flex-direction: column-reverse;
-} */
-
 .card{
-    height: 440px;
-    width: 310px;
+    /* background-color: rgb(88, 96, 214); */
+    background: linear-gradient(100deg, rgba(2,0,36,1) 0,2%, rgba(121,66,9,0.5840837067248774) 5%, rgba(0,212,255,1) 100%);
+    height: 310px;
+    width: 290px;
     border: 1px solid blue;
     padding: 1px;
     text-decoration: none;
-    color: red
+    color: wheat;
+    border-radius: 10px;
 }
 
 body{
@@ -23,13 +21,17 @@ body{
 
 a{
     text-decoration: none;
+    color: yellow;
     }
 
 img{
-
-    margin: 5px 12px 0px 12px;
-    width: 300px;
+    /* margin: 5px 12px 0px 12px; */
+    width: 240px;
     height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 17px;
+    border-radius: 10px;
 }
 
 .buttonContainer{
@@ -38,17 +40,24 @@ img{
 }
 
 .buttonContainer .btnFav{
+    border-radius: 10px;
     position: absolute;
-    /* bottom:0em; */
-    left:0em;
-    /* padding:1em 1.5em; */
+    width: 29px;
+    background-color: rgb(146, 52, 52);
+    left: 1px;
+    border: 0;
 }
 
 .buttonContainer .btnClose{
+    border-radius: 10px;
     position: absolute;
     right: 0.10em;
+    width: 29px;
+    background-color: rgb(146, 52, 52);
+    border: 0;
 }
 
 .info{
     font-size: 11px;
 }
+

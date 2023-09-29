@@ -1,27 +1,32 @@
-import React from 'react';
-import { connect } from "react-redux";
+import { React, useEffect, useState } from 'react';
+import { connect, useDispatch } from "react-redux";
 import Card from '../Card/Card';
 import { NavLink } from "react-router-dom";
+import styles from './Favorites.module.css'
+import { removeFav } from '../../redux/actions';
 
 
 export const Favorites = ({ myFavorites, onClose }) => {
-
+  const dispatch = useDispatch();
     return (
-        <div>
+        <div className={styles.favoritesContainer}>
             {myFavorites?.map((fav) => (
             <Card 
                 key={fav.id} 
                 name={fav.name}
-                status={fav.status} 
-                species={fav.species} 
-                gender={fav.gender}
                 image={fav.image}
-                onClose={onClose}
+                onClose={() => dispatch(removeFav(fav.id))}
             />
       ))}
     </div>
   )
 };
+
+function mapDispatchToProps(dispatch) {
+  return {
+    removeFav: (id) => dispatch(removeFav(id)),
+  };
+}
 
 const mapStateToProps = (state) => {
     return {
@@ -29,4 +34,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Favorites);
+export default connect(mapStateToProps, mapDispatchToProps)(Favorites);
