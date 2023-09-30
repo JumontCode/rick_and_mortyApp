@@ -1,8 +1,14 @@
 import axios from "axios";
 const URL = "http://localhost:3001/rickandmorty/fav/";
 
+
+//Action types
+export const ADD_FAV = 'ADD_FAV';
+export const REMOVE_FAV = 'REMOVE_FAV';
 export const GET_CHARACTER_DETAIL = "GET_CHARACTER_DETAIL";
 export const CLEAN_DETAIL = "CLEAN_DETAIL";
+export const FILTER = "FILTER";
+export const ORDER = "ORDER";
 
 
 // ACTION | addFav//! ACTION CON PROMESA
@@ -74,5 +80,19 @@ export const getCharacterDetail = (id)=> { //Hacemos peticion asíncrona, retorn
 export const cleanDetail = () => {
   return {
       type: CLEAN_DETAIL
+  }
+};
+
+export const filterCards = (gender) => {
+  return {
+      type: FILTER,
+      payload: gender,
+  }
+};
+
+export const orderCards = (order) => {
+  return {
+      type: ORDER,
+      payload: order,
   }
 };

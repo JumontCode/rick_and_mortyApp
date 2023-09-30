@@ -13,3 +13,20 @@
     align-items: center;
 }
 
+.title{
+    margin-bottom: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    text-align: center;
+    color: yellow;
+    border-radius: 15px;
+    width: 300px;
+    background-color: rgb(66,229,254);
+}
+
+.filterContainer{
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}

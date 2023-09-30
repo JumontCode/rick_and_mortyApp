@@ -10,6 +10,9 @@ export default function Cards({ characters, onClose}) {
           id={character.id}
           name={character.name}
           image={character.image}
+          gender={character.gender}
+          // species={character.species}
+          // origin={character.origin}
           onClose={(onClose) /* => window.alert("Cerrar card") */}
         />
       ))}

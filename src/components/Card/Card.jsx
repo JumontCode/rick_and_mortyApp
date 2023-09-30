@@ -60,7 +60,8 @@ function Card({ id, name, status, species, gender, origin, image, onClose, addFa
           <h2>{name}</h2>
         </Link>
           {/* <h2>{species}</h2> */}
-          {/* <h2>{gender}</h2> */}
+          <h2>{gender}</h2>
+          {/* <h2>{origin}</h2> */}
           {/* <h2>{origin}</h2> */}
         <div className={styles.image}>
         </div>
