@@ -22,7 +22,7 @@ export const Favorites = ({ myFavorites, onClose }) => {
     return (
       <div>
       <h1 className={styles.title}>My Favorites</h1>
-      <div>
+      <div className={styles.filterContainer}>
       <select onChange={handleOrder} name="order">
         <option value="A">Ascendente</option>
         <option value="D">Descendente</option>

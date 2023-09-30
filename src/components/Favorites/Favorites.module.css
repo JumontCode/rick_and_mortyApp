@@ -26,7 +26,24 @@
 }
 
 .filterContainer{
+    display: flex; 
+    justify-content: center;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
+
+.filterContainer select{
+    width: 140px;
+    height: 25px;
+    margin-right: 8px;
+    margin-left: 8px;
+    background-color: firebrick;
+    border-radius: 10px;
+    text-align: center;
+} 
+
+.filterContainer select:hover{
+    background-color: yellow;
+}
+
+

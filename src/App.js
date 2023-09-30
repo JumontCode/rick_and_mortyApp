@@ -131,11 +131,13 @@ function App() {
     } else if (location.pathname === "/about") {
       return "about";
     } 
+
+    
   }
 
   return (
     <div className={bgImage()}>
-      {location.pathname !== '/' &&    <Nav onSearch={onSearch} />}
+      {location.pathname !== '/' &&   <Nav onSearch={onSearch} />}
       <Routes>
         <Route path="/" element={< Form login={login} />} />
         <Route path="/home" element={<Cards characters={characters} onClose={onClose} />}/>
@@ -143,6 +145,7 @@ function App() {
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="*" element={<Error />} />
+
       </Routes>
     </div>
   );

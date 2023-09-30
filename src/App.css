@@ -31,10 +31,11 @@
 }
 
 .about{
-   background-image: url('../../rick_and_mortyApp/src/resources/rick-and-morty-en-otro-planeta_2560x1440_xtrafondos.com.jpg');
+   background-image: url('../../rick_and_mortyApp/src/resources/625912.jpg');
    background-size: cover;
    background-attachment: fixed;
    min-height: 780px;     
+   background-size: cover;
 }
 
 h2{
